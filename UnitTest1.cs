@@ -3,6 +3,8 @@
     public class Tests
     {
         Solution Solution { get; set; }
+        ListNode input { get; set; }
+        ListNode expectedOutput { get; set; }
         [SetUp]
         public void Setup()
         {
@@ -12,68 +14,68 @@
         [Test]
         public void TestNormalCase1()
         {
-            var head = new ListNode([6,9,12,46]);
-            var answer = new ListNode([46,12,9,6]);
-            Solution.ReverseList(head);
+            input = new ListNode([6,9,12,46]);
+            expectedOutput = new ListNode([46,12,9,6]);
+            Solution.ReverseList(input);
 
-            while (head != null)
+            while (input != null)
             {
-                Assert.That(head.val, Is.EqualTo(answer.val));
-                head = head.next;
-                answer = answer.next;
+                Assert.That(input.val, Is.EqualTo(expectedOutput.val));
+                input = input.next;
+                expectedOutput = expectedOutput.next;
             }
         }
 
         [Test]
         public void TestNormalCase2()
         {
-            var head = new ListNode([47,-6,12,0,8]);
-            var answer = new ListNode([8,0,12,-6,47]);
-            Solution.ReverseList(head);
+            input = new ListNode([47,-6,12,0,8]);
+            expectedOutput = new ListNode([8,0,12,-6,47]);
+            Solution.ReverseList(input);
 
-            while (head != null)
+            while (input != null)
             {
-                Assert.That(head.val, Is.EqualTo(answer.val));
-                head = head.next;
-                answer = answer.next;
+                Assert.That(input.val, Is.EqualTo(expectedOutput.val));
+                input = input.next;
+                expectedOutput = expectedOutput.next;
             }
         }
 
         [Test]
         public void TestSmallArray1()
         {
-            var head = new ListNode([0]);
-            var answer = new ListNode([0]);
-            Solution.ReverseList(head);
+            input = new ListNode([0]);
+            expectedOutput = new ListNode([0]);
+            Solution.ReverseList(input);
 
-            while (head != null)
+            while (input != null)
             {
-                Assert.That(head.val, Is.EqualTo(answer.val));
-                head = head.next;
-                answer = answer.next;
+                Assert.That(input.val, Is.EqualTo(expectedOutput.val));
+                input = input.next;
+                expectedOutput = expectedOutput.next;
             }
         }
 
         [Test]
         public void TestSmallArray2()
         {
-            var head = new ListNode([0,1]);
-            var answer = new ListNode([1,0]);
-            Solution.ReverseList(head);
+            input = new ListNode([0,1]);
+            expectedOutput = new ListNode([1,0]);
+            Solution.ReverseList(input);
 
-            while (head != null)
+            while (input != null)
             {
-                head = head.next;
-                answer = answer.next;
+                input = input.next;
+                expectedOutput = expectedOutput.next;
             }
         }
 
         [Test]
         public void TestNullCase()
         {
-            ListNode head = null;
-            ListNode answer = null;
-            Assert.That(answer, Is.EqualTo(Solution.ReverseList(head)));
+            input = null;
+            expectedOutput = null;
+            Assert.That(expectedOutput, Is.EqualTo(Solution.ReverseList(input)));
 
         }
     }
